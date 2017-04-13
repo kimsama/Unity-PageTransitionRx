@@ -31,14 +31,13 @@ public class TurnPage : MonoBehaviour
             . OnSwipeLeft 
             . Where ( _  =>  currentPage  <  pageCount )  // 최대 페이지 이전 인 경우에만 진행 
             . Where ( _  =>  this.moveAnimation  ==  null  ||  ! this.moveAnimation.IsPlaying ())  // 애니메이션 실행 중이 아니 
-            . Subscribe ( _  => 
-            { 
-                this.currentPage ++; 
-                this.moveAnimation  =  this.rectTransform 
-                    .DOAnchorPosX ( rectTransform.anchoredPosition.x  -  this.PageWidth,  1.0f ) 
+            . Subscribe ( _ => 
+                { 
+                    this.currentPage ++; 
+                    this.moveAnimation  =  this.rectTransform.DOAnchorPosX (rectTransform.anchoredPosition.x - this.PageWidth, 1.0f ) 
                     .SetEase ( Ease.OutBounce ) 
                     .Play (); 
-            }); 
+                }); 
 
         // back 
         this . swipeGesture 
@@ -46,12 +45,10 @@ public class TurnPage : MonoBehaviour
             . Where ( _  =>  currentPage  >  1 )  // 1 페이지 이상인 경우에만 돌아갈 
             . Where ( _  =>  this.moveAnimation == null || !this.moveAnimation.IsPlaying())  // 애니메이션 실행 중이 없다 
             . Subscribe ( _  => 
-            { 
-                this.currentPage--; 
-                this.moveAnimation = this.rectTransform 
-                    .DOAnchorPosX (rectTransform.anchoredPosition.x  +  this.PageWidth, 1.0f) 
-                    .SetEase (Ease.OutBounce) 
-                    .Play(); 
-            } ); 
+                { 
+                    this.currentPage--; 
+                    this.moveAnimation = this.rectTransform.DOAnchorPosX(rectTransform.anchoredPosition.x + this.PageWidth, 1.0f)
+                        .SetEase(Ease.OutBounce).Play(); 
+                } );
     }
 }
