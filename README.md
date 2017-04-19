@@ -6,7 +6,8 @@ A demonstration of page transition.
   <img src="./images/pageturn01.gif" >
 </p
 
-The original post can be found on here: [Page transition with using uGUI and UniRx](http://qiita.com/lycoris102/items/1c792c4ba78e564a1b21)
+The original post can be found on here: [Page transition with using uGUI and UniRx.](http://qiita.com/lycoris102/items/1c792c4ba78e564a1b21)
+No git or any ohter repository can be found on the blog post, so the reason why this repository goes. 
 
 Requirement
 
